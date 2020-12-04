@@ -1,0 +1,33 @@
+Public Class Form20
+    Private Sub Form20_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim a, cumm, temp, hasil As Integer
+        Dim showhasil As String
+        showhasil = ""
+        a = CInt(TextBox1.Text)
+        temp = 0
+        hasil = 0
+        Dim b(a) As Integer
+        cumm = 0
+        While cumm < a
+            If cumm = 0 Then
+                b(cumm) = cumm
+                showhasil = showhasil + b(cumm).ToString + ","
+            Else
+                If cumm = 1 Then
+                    b(cumm) = cumm
+                    showhasil = showhasil + b(cumm).ToString + ","
+                Else
+                    temp = b(cumm - 1) + b(cumm - 2)
+                    b(cumm) = temp
+                    showhasil = showhasil + temp.ToString + ","
+                End If
+            End If
+            cumm = cumm + 1
+        End While
+        Label2.Text = showhasil
+    End Sub
+End Class
